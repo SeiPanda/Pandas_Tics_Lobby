@@ -1,0 +1,30 @@
+
+
+<ng-container *ngIf="isPlayerNameSubmited">
+  <div id="heading" >Pandas Tics</div>
+  <div class="name" >Playername: {{name}}</div>
+
+  <div class="gameModes" *ngIf="!privateMode">
+    <div id="public" class="mode menu_button" (click)="onPublicMode()"><span>Public Mode</span></div>
+    <div id="private" class="mode menu_button" (click)="onPrivateMode()"><span>Private Mode</span></div>
+  </div>
+
+  <div class="gameModes" *ngIf="privateMode">
+    <label class="name">Enter RoomKey</label>
+    <input maxlength="10" type="text" spellcheck="false" matInput [(ngModel)]="roomKeyName">
+    <div class="backButton" (click)="onKeySubmit()">Start Game</div>
+    <div class="backButton" (click)="onBackToMenu()">Back to Menu</div>
+  </div>
+
+
+</ng-container>
+
+
+<div id="PopUpName" class="pop" *ngIf="!isPlayerNameSubmited">
+  <div class="inner">
+    <input maxlength="10" type="text" spellcheck="false" matInput [(ngModel)]="name">
+    <div class="submitButton" (click)="send()"><span>Join Game</span></div>
+  </div>
+</div>
+
+

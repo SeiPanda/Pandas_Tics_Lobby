@@ -1,0 +1,9 @@
+<div class="player" id="player1"  [ngStyle]="{'color': player1.currentTurn ? '' : 'black'}">
+  <div>{{player1.name}}</div>
+  <div>{{player1.wins}}</div>
+</div>
+<div id="heading"><span>{{title}}</span></div>
+<div class="player" id="player2" [ngStyle]="{'color': player2.currentTurn ? '' : 'black'}">
+  <div>{{player2.name}}</div>
+  <div>{{player2.wins}}</div>
+</div>

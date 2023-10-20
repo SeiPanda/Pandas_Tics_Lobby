@@ -1,0 +1,24 @@
+
+<ng-container *ngIf="isGameReady">
+  <app-gameHeader [players]="players" [title]="roomName"></app-gameHeader>
+
+  <div id="tr_inner">
+    <div id="number-container">
+      <button class="number-container-item buttonBlock-item"
+              [ngClass]="{ 'winning-field': field.win }"
+              [disabled]="!!field.sign || isBlocked"
+              (click)="onField(field)"
+              *ngFor="let field of fields">
+        <span [ngClass]="{ 'circle': field.sign === 'o', 'rectangle':  field.sign !== 'o' }">{{field.sign}}</span>
+      </button>
+    </div>
+  </div>
+  <div class="backButton" (click)="onBackToMenu()">Back to Menu</div>
+
+</ng-container>
+<div *ngIf="!isGameReady && isPlayerNameSubmited" class="pop">
+  <div class="inner">
+    <div id="waitingText">Waiting for other Player <div class="lds-facebook"><div></div><div></div><div></div></div></div>
+    <div class="backButton" (click)="onBackToMenu()">Back to Menu</div>
+  </div>
+</div>
